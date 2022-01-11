@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            background-image: blue;
+        }
+        td{
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+        }
+        fieldset{
+            border: 3px solid blue;
+            width: 210mm;
+            height:297mm;
+        }
+        .defeitos{
+            width: 150px;
+            height: 300px;
+        }
+        .vli{
+            position: absolute
+        }
+    </style>
+</head>
+<body>  
+    <div class="dados">
+        <fieldset class="tabela">
+            <img src="6e66f50e9e50f4fb4626d038d33b4732.jpg" alt="" class="vli">
+            <h1><strong>RELATÓRIO DE INSPEÇÃO</strong></h1>
+            <div id="cabeçalho" class="cabeçalho">  
+                <table border="2" > 
+                    <tr>
+                        <td>Técnico</td>
+                        <td>Operador</td>
+                        <td>Acompanhante(s)</td>
+                        <td>Data</td>
+                    </tr>
+                    <tr>
+                        <td> <input type="text" class="value" required> </td>
+                        <td> <input type="text" class="value" required> </td>
+                        <td> <input type="text" class="value" required> </td>
+                        <td><input type="date" name="data" id="data"></td>
+                    </tr>  
+                </table>
+            </div>
+            <br>
+            <div>
+                <table border="1">
+                        <tr>
+                            <td>Corredor</td>
+                            <td>Supervisão</td>
+                            <td>Trechos</td>
+                        </tr>
+                    <tr>
+                        <td><input type="text" required></td>
+                        <td><input type="text" required></td>
+                        <td><input type="text" required></td>
+                    </tr>
+                </table>
+                <br>
+                <h2>Defeitos:</h2>
+                <table>
+                    <tr>
+                        <td>Defeitos P0</td>
+                        <td>Defeitos P1</td>
+                        <td>Defeitos P2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="defeitos"></td>
+                        <td><input type="text" class="defeitos"></td>
+                        <td><input type="text" class="defeitos"></td>
+                    </tr>
+                </table>
+                <h2>Evidências:</h2>
+                <input type="button" value="pdf" onclick="funcaopdf()">
+        </fieldset>
+    </div>
+    
+</body>
+<script>
+    function funcaopdf(){
+        var pegardados = document.getElementById('dados').innerHTML;
+
+        var janela = window.open('','','width=800,height=600');
+        janela.document.write('<htm><head>');
+        janela.document.write('<title>PDF<title></head>');
+        janela.document.write('<body');
+        janela.document.write(pegardados);
+        janela.document.write('</body></html>');
+        janela.document.close();
+        janeça.print();
+        
+    }
+
+</script>
+</html>
